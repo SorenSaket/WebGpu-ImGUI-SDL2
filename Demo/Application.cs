@@ -63,7 +63,9 @@ public class Application
 
             };
             device = adapter.RequestDeviceAsync(deviceDescriptor).GetAwaiter().GetResult() ?? throw new Exception("Failed to acquire Device");
-                
+            
+            queue = device.GetQueue();    
+            
             // Setup windowing with SDL. 
             _ = SDL.SDL_Init(SDL.SDL_INIT_EVERYTHING);
             // Create SDL window
